@@ -52,8 +52,5 @@ public class Rectangulo {
         double y2 = Math.min(r1.getEsquina2().getY(), r2.getEsquina2().getY());
         return new Rectangulo(new Coordenada(x1, y1), new Coordenada(x2, y2));
     }
-    
-    
-    
 }
 
