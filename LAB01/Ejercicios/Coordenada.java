@@ -1,8 +1,8 @@
 package LAB01.Ejercicios;
 
 public class Coordenada {
-    private int x;
-    private int y;
+    private double x;
+    private double y;
 
     // Constructor
     public Coordenada() {
@@ -10,7 +10,7 @@ public class Coordenada {
         this.y = 0;
     }
 
-    public Coordenada(int x, int y) {
+    public Coordenada(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -20,22 +20,22 @@ public class Coordenada {
         this.y = C.y;
     }
 
+    // set permite modificar el valor de un atributo de un objeto
+    public void setx(double x) {
+        this.x = x;
+    }
+    
+    public void setY(double y) {
+        this.y = y;
+    }
+
     // get se encarga de mostrar un valor a una propiedad o atributo de un objeto
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    // set permite modificar el valor de un atributo de un objeto
-    public void setx(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
+    public double getY() {
         return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     public static double distancia(Coordenada C) {
