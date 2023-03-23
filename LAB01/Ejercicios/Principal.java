@@ -1,57 +1,66 @@
-package LAB01.Ejercicios;
-
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Principal {
+        public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                double ComponenteX, ComponenteY;
+                int opciones = 0;
+                Rectangulo Rectangle = new Rectangulo(new Coordenada(3, 0), new Coordenada(0, 7));
+                Coordenada CodenadaX = new Coordenada(1, 5);
+                Coordenada CodenadaY = new Coordenada(1, 5);
+                System.out.print("\n Capacidad maxima del contenedor de rectangulos: ");
+                int numeros = sc.nextInt();
+                ContainerRect contenedor = new ContainerRect(numeros);
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-    
-        // Ingresar valores para el Rectangulo A
-        System.out.println("Ingrese una esquina del 1er rectangulo: ");
-        double x1A = sc.nextDouble();
-        double y1A = sc.nextDouble();
-        System.out.println("Ingrese la esquina opuesta del 1er rectangulo: ");
-        double x2A = sc.nextDouble();
-        double y2A = sc.nextDouble();
-    
-        // Ingresar valores para el Rectangulo B
-        System.out.println("Ingrese una esquina del 2do rectangulo: ");
-        double x1B = sc.nextDouble();
-        double y1B = sc.nextDouble();
-        System.out.println("Ingrese la esquina opuesta del 2do rectangulo: ");
-        double x2B = sc.nextDouble();
-        double y2B = sc.nextDouble();
-    
-        // Crear los objetos Rectangulo A y B
-        Rectangulo A = new Rectangulo(new Coordenada(x1A, y1A), new Coordenada(x2A, y2A));
-        Rectangulo B = new Rectangulo(new Coordenada(x1B, y1B), new Coordenada(x2B, y2B));
-    
-        // Verificar en qué caso se encuentran los dos rectángulos
-        int caso = Verificador.verificar(A, B);
-    
-        // Mostrar la información de cada rectángulo
-        System.out.println("Rectangulo A = " + A);
-        System.out.println("Rectangulo B = " + B);
-    
-        // Mostrar el caso en el que se encuentran los dos rectángulos
-        if (caso == 1) {
-            System.out.println("Rectangulos A y B se sobreponen.");
-            Rectangulo sobreposicion = Rectangulo.rectanguloSobre(A, B);
-            double areaSobreposicion = sobreposicion.calculoArea();
-            System.out.println("Area de sobreposicion = " + areaSobreposicion);
-        } else if (caso == 2) {
-            System.out.println("Rectangulos A y B estan juntos.");
-        } else {
-            System.out.println("Rectangulos A y B son disjuntos.");
+                do {
+                        try {
+
+                                menu();
+                                System.out.print("Ingresar Opcion :");
+                                opciones = sc.nextInt();
+                                while (opciones > 5 || opciones <= 0) {
+                                        System.out.print("Ingresar Opcion (1-3):");
+                                        opciones = sc.nextInt();
+                                }
+                                switch (opciones) {
+                                        case 1:
+                                                System.out.println("Ingrese una esquina del rectángulo:");
+                                                ComponenteX = sc.nextDouble();
+                                                ComponenteY = sc.nextDouble();
+                                                CodenadaX = new Coordenada(ComponenteX, ComponenteY);
+
+                                                System.out.println("Ingrese la esquina opuesta del rectángulo:");
+                                                ComponenteX = sc.nextDouble();
+                                                ComponenteY = sc.nextDouble();
+                                                CodenadaY = new Coordenada(ComponenteX, ComponenteY);
+                                                Rectangle = new Rectangulo(CodenadaX, CodenadaY);
+                                                contenedor.addRectangulo(Rectangle);
+                                                break;
+                                        case 2:
+                                                System.out.println("\n" + contenedor.toString());
+                                                break;
+                                        case 3:
+                                                System.out.println(
+                                                                "\n\n *************************** VISITANOS MUY PRONTO *************************** \t");
+                                                break;
+                                }
+                        } catch (InputMismatchException e) {
+                                System.out.println("Error: No se pudo completar la operacion");
+                                sc.next();
+                        }
+                } while (opciones != 3);
+                sc.close();
         }
-    
-        sc.close();
-    }  
+
+        public static void menu() {
+                System.out.println(
+                                "\n************************************** MENU **************************************");
+                System.out.println("\t1.Agregar Rectangulo.\t");
+                System.out.println("\t2.Mostrar Lista de Rectangulos\t");
+                System.out.println("\t3.Salir \t");
+                System.out.println(
+                                "***********************************************************************************\n");
+        }
+
 }
-
-
-
-
-
-
