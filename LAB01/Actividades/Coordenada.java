@@ -1,5 +1,3 @@
-package LAB01.Ejercicios;
-
 public class Coordenada {
     private double x;
     private double y;
@@ -20,22 +18,22 @@ public class Coordenada {
         this.y = C.y;
     }
 
-    // set permite modificar el valor de un atributo de un objeto
-    public void setx(double x) {
-        this.x = x;
-    }
-    
-    public void setY(double y) {
-        this.y = y;
-    }
-
     // get se encarga de mostrar un valor a una propiedad o atributo de un objeto
     public double getX() {
         return x;
     }
 
+    // set permite modificar el valor de un atributo de un objeto
+    public void setx(double x) {
+        this.x = x;
+    }
+
     public double getY() {
         return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 
     public static double distancia(Coordenada C) {
@@ -53,7 +51,7 @@ public class Coordenada {
     }
 
     public String toString() {
-        return ">>>Coordenadas, X:" + x + ", Y: " + y;
+        return "[" + x + ", " + y + "]";
     }
 
 }
