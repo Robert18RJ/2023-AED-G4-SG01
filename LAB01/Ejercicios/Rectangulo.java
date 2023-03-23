@@ -60,7 +60,7 @@ public class Rectangulo {
     }
 
     public String toString() {
-        return " (" + this.esquina2 + ", " + this.esquina1 + ")";
+        return " (" + this.esquina1 + ", " + this.esquina2 + ")";
     }
 
 }
