@@ -4,14 +4,7 @@ public class Verificador {
         Rectangulo rect1 = ordenarCoordenadas(r1);
         Rectangulo rect2 = ordenarCoordenadas(r2);
 
-        // System.out.println("A " + rect1.getEsquina1().getX() + " " +
-        // rect1.getEsquina1().getY() + " "
-        // + rect1.getEsquina2().getX() + " " + rect1.getEsquina2().getY());
-        // System.out.println("B " + rect2.getEsquina1().getX() + " " +
-        // rect2.getEsquina1().getY() + " "
-        // + rect2.getEsquina2().getX() + " " + rect2.getEsquina2().getY());
-
-        if (rect1.getEsquina2().getX() < rect2.getEsquina1().getX()
+       if (rect1.getEsquina2().getX() < rect2.getEsquina1().getX()
                 || rect1.getEsquina2().getY() < rect2.getEsquina1().getY()
                 || rect1.getEsquina1().getX() > rect2.getEsquina2().getX()
                 || rect1.getEsquina1().getY() > rect2.getEsquina2().getY()) {
