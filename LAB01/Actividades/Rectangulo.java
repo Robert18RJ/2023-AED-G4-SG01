@@ -12,7 +12,6 @@ public class Rectangulo {
     public Rectangulo(int CompX, int CompY) {
         this.esquina1 = new Coordenada(0, CompY);
         this.esquina2 = new Coordenada(CompX, 0);
-        // this.colores = controlcolor();
     }
 
     // get se encarga de mostrar un valor a una propiedad o atributo de un objeto

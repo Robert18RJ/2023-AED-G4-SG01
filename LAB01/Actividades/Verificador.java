@@ -4,11 +4,18 @@ public class Verificador {
         Rectangulo rect1 = ordenarCoordenadas(r1);
         Rectangulo rect2 = ordenarCoordenadas(r2);
 
-       if (rect1.getEsquina2().getX() < rect2.getEsquina1().getX()
+        // System.out.println("A " + rect1.getEsquina1().getX() + " " +
+        // rect1.getEsquina1().getY() + " " + rect1.getEsquina2().getX() + " " +
+        // rect1.getEsquina2().getY());
+        // System.out.println("B " + rect2.getEsquina1().getX() + " " +
+        // rect2.getEsquina1().getY() + " " + rect2.getEsquina2().getX() + " " +
+        // rect2.getEsquina2().getY());
+
+        if (rect1.getEsquina2().getX() < rect2.getEsquina1().getX()
                 || rect1.getEsquina2().getY() < rect2.getEsquina1().getY()
                 || rect1.getEsquina1().getX() > rect2.getEsquina2().getX()
                 || rect1.getEsquina1().getY() > rect2.getEsquina2().getY()) {
-            // System.out.println("Rectangulos A y B NO se sobreponen");
+            //System.out.println("Rectangulos A y B NO se sobreponen");
             return false;
         } else {
             double base = Math.min(rect1.getEsquina2().getX(), rect2.getEsquina2().getX())
@@ -18,8 +25,8 @@ public class Verificador {
             if (positivo(base * altura) == 0) {
                 return false;
             }
-            System.out.println("Rectangulos A y B se sobreponen.");
-            System.out.println("Area de sobreposicion: " + positivo(base * altura));
+            System.out.println("Rectangulos A y B se sobreponen");
+            System.out.println("Area de sobreposicion = " + positivo(base * altura));
             return true;
         }
     }
@@ -43,6 +50,7 @@ public class Verificador {
             e14 = e12;
             e12 = cambio;
         }
+
         return new Rectangulo(new Coordenada(e11, e12), new Coordenada(e13, e14));
     }
 
@@ -117,7 +125,6 @@ public class Verificador {
             // coordenadas disjuntas
             return false;
         }
-
     }
 
     public static boolean esDisjunto(Rectangulo r1, Rectangulo r2) {
@@ -166,10 +173,12 @@ public class Verificador {
             e24 = e22;
             e22 = cambio;
         }
+
         if (e11 > e23 || e13 < e21 || e14 < e22 || e12 > e24) {
-            System.out.println("Rectangulos A y B son disjuntos");
+            System.out.println("Rectangulos A y B NO se juntan");
             return true;
         } else {
+            System.out.println("Rectangulos A y B se juntan");
             return false;
         }
     }
