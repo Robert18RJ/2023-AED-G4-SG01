@@ -26,4 +26,16 @@ public class Caja<T> implements Iterable<T> {
     public String getColor() {
         return this.color;
     }
+
+    public boolean contains(T elemento) {
+        return lista.contains(elemento);
+    }
+    
+    public ArrayList<T> getContenido() {
+        return lista;
+    }
+
+    public T remove(T elemento) {
+        return null;
+    }
 }
