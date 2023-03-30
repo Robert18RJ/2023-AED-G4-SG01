@@ -22,4 +22,8 @@ public class Caja<T> implements Iterable<T> {
     public Iterator<T> iterator() {
         return lista.iterator();
     }
+
+    public String getColor() {
+        return this.color;
+    }
 }
