@@ -9,9 +9,9 @@ public class Cajoneria<T> implements Iterable<Caja<T>> {
         super();
         this.tope = tope;
     }
-
+    
     public void add(Caja<T> caja) {
-        if (lista.size() >= tope) {
+        if (lista.size() < tope) {
             lista.add(caja);
         } else {
             throw new RuntimeException("no caben mas cajas");
@@ -26,40 +26,57 @@ public class Cajoneria<T> implements Iterable<Caja<T>> {
 
     public Iterator<Caja<T>> iterator() {
         return lista.iterator();
-    }
+    }        
 
-    // Método para buscar un elemento en las cajas de la Cajoneria
+    //Método buscar
     public String search(T elemento) {
         for (int i = 0; i < lista.size(); i++) {
             Caja<T> caja = lista.get(i);
-            if (caja.contains(elemento)) {
-                return "Posicion " + (i + 1) + " " + caja.getColor() + " " + caja.getContenido();
+            if (caja.contiene(elemento)) {
+                return "Posición " + i + " - Color Caja " + caja.getColor() + " - " + elemento.toString();
             }
         }
-        return "El elemento no se encuentra en ninguna de las cajas";
+        return "El elemento no se encuentra en ninguna caja";
     }
 
-    // Método para eliminar un elemento de las cajas de la Cajoneria
+    //Método eliminar
     public T delete(T elemento) {
-        for (int i = 0; i < lista.size(); i++) {
-            Caja<T> caja = lista.get(i);
-            if (caja.contains(elemento)) {
-                return caja.remove(elemento);
+        for (Caja<T> caja : lista) {
+            if (caja.contiene(elemento)) {
+                T objetoEliminado = caja.eliminar(elemento);
+                return objetoEliminado;
             }
         }
         return null;
     }
 
-    // Método para devolver una cadena con los datos de los objetos guardados en las cajas de la Cajoneria
+    //Métod toString
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < lista.size(); i++) {
-            Caja<T> caja = lista.get(i);
-            ArrayList<T> contenido = caja.getContenido();
-            for (T elemento : contenido) {
-                sb.append("Posicion ").append(i + 1).append(" ").append(caja.getColor()).append(" ").append(elemento).append("\n");
+        sb.append(String.format("%-10s%-15s%-15s%n", "Posicion", "Color Caja", "Objeto"));
+        int i = 1;
+        for (Caja<T> caja : lista) {
+            for (T objeto : caja) {
+                sb.append(String.format("%-10d%-15s%-15s%n", i, caja.getColor(), objeto.toString()));
+                i++;
             }
         }
         return sb.toString();
     }
+        
+    public Caja<T> get(int index) {
+        return lista.get(index);
+    }
+        
+    public T eliminar(T objeto) {
+        for (Caja<T> caja : lista) {
+            if (!caja.isEmpty() && caja.contiene(objeto)) {
+                return caja.eliminar(objeto);
+            }
+        }
+        return null;
+    }       
+    
 }
+
+

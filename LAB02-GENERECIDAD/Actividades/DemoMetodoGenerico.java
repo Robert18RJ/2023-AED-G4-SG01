@@ -24,25 +24,21 @@ class DemoMetodoGenerico {
             System.out.println("nums es igual a num3");
         if (igualArrays(nums, nums4))
             System.out.println("nums es igual a nums4");
-        // Crea un array de double
-        Double dvals[] = { 1.1, 2.2, 3.3, 4.4, 5.5 };
-        if (igualArrays(nums, dvals))
-        System.out.println("nums es igual a dvals");
-
-        /*
-         * 6. Descomente las lineas etiquetas con A, B, C y D del método main() del
-         * ejercicio anterior
-         * y ejecute el programa. Analice lo que sucede.
-         */
-
-        /*
-         * Al descomentr las lineas podemos apreciar que para usar el metodo igual
-         * arrays debemos ingresar parametros compratibles en este caso
-         * si intentamos ingresar "nums"<Integer> "dvlas" <Double> nos saldra error en
-         * momento
-         * de compilacion ya que no nos dejara pasar a ejecuion sin solucionar el error
-         * 
-         */
-
+        //Crea un array de double                           //A
+        // Double dvals[] = { 1.1, 2.2, 3.3, 4.4, 5.5 };      //B   
+        // if (igualArrays(nums, dvals))                      //C   
+        // System.out.println("nums es igual a dvals");       //D   
     }
 }
+
+        // 6. Descomente las lineas etiquetas con A, B, C y D del método main() del
+        // ejercicio anterior y ejecute el programa. Analice lo que sucede.
+        
+        // Respuesta
+        // Al descomentar las lineas podemos apreciar que para usar el metodo igual
+        // arrays debemos ingresar parametros compatibles en este caso
+        // si intentamos ingresar "nums"<Integer> "dvlas" <Double> nos saldra error en
+        // momento de compilación ya que no nos dejara pasar a ejecuión sin solucionar el error.
+        
+        
+

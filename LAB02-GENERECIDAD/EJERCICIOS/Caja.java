@@ -19,23 +19,40 @@ public class Caja<T> implements Iterable<T> {
         }
     }
 
-    public Iterator<T> iterator() {
-        return lista.iterator();
-    }
-
     public String getColor() {
         return this.color;
     }
 
-    public boolean contains(T elemento) {
-        return lista.contains(elemento);
-    }
-    
-    public ArrayList<T> getContenido() {
-        return lista;
+    public Iterator<T> iterator() {
+        return lista.iterator();
     }
 
-    public T remove(T elemento) {
+    //////////
+    public boolean contiene(T elemento) {
+        for (T objeto : lista) {
+            if (objeto.equals(elemento)) {
+                return true;
+            }
+        }
+        return false;
+    }          
+    
+    public T eliminar(T objeto) {
+        for (T t : lista) {
+            if (t.equals(objeto)) {
+                lista.remove(t);
+                return t;
+            }
+        }
         return null;
     }
+
+    public boolean isEmpty() {
+        return lista.isEmpty();
+    }
+    
+    
+    
 }
+
+
