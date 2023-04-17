@@ -85,6 +85,8 @@ public class GenericSort {
                 a[i] = a[j];
                 a[j] = aux;
             }
+            i++;
+            j--;
 
         } while (i <= j);
         if (l < j) {
